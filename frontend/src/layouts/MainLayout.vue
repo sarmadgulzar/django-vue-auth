@@ -3,8 +3,15 @@
     <q-header elevated>
       <q-toolbar>
         <q-toolbar-title> Dummy App </q-toolbar-title>
-        <q-btn stretch flat label="Login" @click="$router.replace('/login')" />
         <q-btn
+          v-if="!loggedIn"
+          stretch
+          flat
+          label="Login"
+          @click="$router.replace('/login')"
+        />
+        <q-btn
+          v-if="!loggedIn"
           stretch
           flat
           label="Register"
@@ -20,8 +27,12 @@
 
 <script>
 import { defineComponent } from "vue";
+import { mapGetters } from "vuex";
 
 export default defineComponent({
   name: "MainLayout",
+  computed: {
+    ...mapGetters("auth", ["loggedIn"]),
+  },
 });
 </script>
