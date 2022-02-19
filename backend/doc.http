@@ -1,0 +1,17 @@
+### START LOGIN
+POST http://localhost:8000/api/auth/login/
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin"
+}
+### END LOGIN
+
+### START LOGOUT
+POST http://localhost:8000/api/auth/logout/
+### END LOGOUT
+
+### START GET USER
+GET http://localhost:8000/api/auth/user/
+### END GET USER
