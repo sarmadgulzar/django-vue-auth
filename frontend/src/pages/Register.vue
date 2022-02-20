@@ -25,11 +25,15 @@ export default defineComponent({
   },
   methods: {
     register() {
-      this.$store.dispatch("auth/register", {
-        username: this.username,
-        password1: this.password1,
-        password2: this.password2,
-      });
+      this.$store
+        .dispatch("auth/register", {
+          username: this.username,
+          password1: this.password1,
+          password2: this.password2,
+        })
+        .then(() => {
+          this.$router.push({ name: "dashboard" });
+        });
     },
   },
 });

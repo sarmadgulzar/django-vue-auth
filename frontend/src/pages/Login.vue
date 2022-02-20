@@ -22,10 +22,14 @@ export default defineComponent({
   },
   methods: {
     login() {
-      this.$store.dispatch("auth/login", {
-        username: this.username,
-        password: this.password,
-      });
+      this.$store
+        .dispatch("auth/login", {
+          username: this.username,
+          password: this.password,
+        })
+        .then(() => {
+          this.$router.push({ name: "dashboard" });
+        });
     },
   },
 });
