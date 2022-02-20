@@ -6,6 +6,11 @@ const routes = [
     children: [
       { path: "register/", component: () => import("pages/Register.vue") },
       { path: "login/", component: () => import("pages/Login.vue") },
+      {
+        path: "dashboard/",
+        component: () => import("pages/Dashboard.vue"),
+        meta: { requiresAuth: true },
+      },
     ],
   },
 

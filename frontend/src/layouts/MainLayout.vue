@@ -10,13 +10,7 @@
           label="Login"
           @click="$router.replace('/login')"
         />
-        <q-btn
-          v-if="!loggedIn"
-          stretch
-          flat
-          label="Register"
-          @click="$router.replace('/register')"
-        />
+        <q-btn v-else stretch flat label="Logout" @click="logout" />
       </q-toolbar>
     </q-header>
     <q-page-container>
@@ -33,6 +27,11 @@ export default defineComponent({
   name: "MainLayout",
   computed: {
     ...mapGetters("auth", ["loggedIn"]),
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("auth/logout");
+    },
   },
 });
 </script>

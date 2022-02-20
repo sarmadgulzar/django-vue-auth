@@ -21,3 +21,7 @@ export function login({ commit }, credentials) {
     });
   });
 }
+
+export function logout({ commit }) {
+  commit("CLEAR_USER_DATA");
+}
