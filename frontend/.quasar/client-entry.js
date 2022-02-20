@@ -134,6 +134,8 @@ createQuasarApp(createApp, quasarUserOptions)
   .then(app => {
     return Promise.all([
       
+      import(/* webpackMode: "eager" */ 'boot/autologin'),
+      
       import(/* webpackMode: "eager" */ 'boot/axios')
       
     ]).then(bootFiles => {
